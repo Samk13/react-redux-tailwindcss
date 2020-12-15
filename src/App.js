@@ -6,21 +6,32 @@ function App() {
   const dispatch = useDispatch();
   return (
     <div className="bg-blue-900 container m-auto text-white">
-      <div>
-        <h1 className="text-center text-4xl font-black p-5">Test! </h1>
+      <div className="mx-2">
+        <h1 className="text-center text-4xl font-black p-5">Test!</h1>
         <div>
           <p>login status</p>
-          {logged ? (
-            <div>You are logged in</div>
-          ) : (
-            <div>You are NOT are logged in</div>
-          )}
+          <div>
+            {logged ? (
+              <div>You are logged in</div>
+            ) : (
+              <div>You are NOT are logged in</div>
+            )}
+          </div>
+          <div>
+            <button
+              onClick={() => dispatch(actions.loggin())}
+              className="border py-2 px-5 rounded-full"
+            >
+              {logged ? "log in" : "log out"}
+            </button>
+          </div>
         </div>
+
         <div>
           <h1>Counter {counter}</h1>
           <div className="space-x-2 p-5">
             <button
-              onClick={() => dispatch(actions.increment())}
+              onClick={() => dispatch(actions.increment(3))}
               className="border py-2 px-5 rounded-full"
             >
               increment
